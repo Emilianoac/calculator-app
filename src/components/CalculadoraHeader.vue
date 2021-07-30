@@ -10,9 +10,9 @@
                     <label for="tema-neon">3</label>
                 </div>
                 <div class="inputs">
-                    <input type="radio" name="tema-color" id="tema-claro" checked>
-                    <input type="radio" name="tema-color" id="tema-oscuro">
-                    <input type="radio" name="tema-color" id="tema-neon">
+                    <input @click="cambiarTema" type="radio" name="tema-color" id="tema-claro" checked>
+                    <input @click="cambiarTema" type="radio" name="tema-color" id="tema-oscuro">
+                    <input @click="cambiarTema" type="radio" name="tema-color" id="tema-neon">
                 </div>
             </div>
         </div>
@@ -21,6 +21,16 @@
 
 <script>
     export default {
+        name: "CalculadoraHeader",
+        methods: {
+            cambiarTema(e) {
+                const temas = ["tema-claro", "tema-oscuro", "tema-neon"]
+                const $body = document.querySelector("body")
+                for (const tema of temas) {
+                   e.target.id == tema ? $body.classList.add(tema) : $body.classList.remove(tema) 
+                }
+            }
+        }
     }
 </script>
 
