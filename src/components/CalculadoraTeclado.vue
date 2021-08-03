@@ -1,23 +1,10 @@
 <template>
     <div class="calculadora__teclado">
-        <CalculadoraTecla :valor="7"/>
-        <CalculadoraTecla :valor="8"/>
-        <CalculadoraTecla :valor="9"/>
-        <CalculadoraTecla valor="DEL"/>
-        <CalculadoraTecla :valor="4"/>
-        <CalculadoraTecla :valor="5"/>
-        <CalculadoraTecla :valor="6"/>
-        <CalculadoraTecla valor="+"/>
-        <CalculadoraTecla :valor="1"/>
-        <CalculadoraTecla :valor="2"/>
-        <CalculadoraTecla :valor="3"/>
-        <CalculadoraTecla valor="-"/>
-        <CalculadoraTecla valor="."/>
-        <CalculadoraTecla :valor="0"/>
-        <CalculadoraTecla valor="/"/>
-        <CalculadoraTecla valor="x"/>
-        <CalculadoraTecla valor="RESET"/>
-        <CalculadoraTecla valor="="/>
+        <CalculadoraTecla 
+            v-for="(tecla) in teclas" 
+            :key="tecla"
+            :valor="tecla"
+        />
     </div>
 </template>
 
@@ -28,6 +15,11 @@
         name: "CalculadoraTeclado",
         components: {
             CalculadoraTecla
+        },
+        setup() {
+            const teclas = [7,8,9,"DEL",4,5,6,"+",1,2,3,"-",".",0,"/","x","RESET","="]
+            
+            return {teclas}
         }
     }
 </script>
