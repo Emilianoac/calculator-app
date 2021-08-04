@@ -49,7 +49,7 @@
         display: flex;
         justify-content: center;
         flex-direction: column;
-        align-items: end;
+        align-items: flex-end;
         min-height: 110px;
         max-height: 120px;
         overflow-y: auto;
